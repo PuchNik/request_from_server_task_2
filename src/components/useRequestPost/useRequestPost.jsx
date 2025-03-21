@@ -7,7 +7,7 @@ export const useRequestPost = (setIsUpdating) => {
         setTaskValue(event.target.value)
     }
 
-    const handleSubmit = (event) => {
+    const handleAddTask = (event) => {
         event.preventDefault()
 
         fetch('http://localhost:3000/tasks', {
@@ -45,6 +45,6 @@ export const useRequestPost = (setIsUpdating) => {
         addNewTask,
         taskValue,
         handleInputChange,
-        handleSubmit
+        handleAddTask
     }
 }
