@@ -1,9 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": "f60a",
-      "title": "task 1",
-      "completed": false
-    }
-  ]
+  "tasks": []
 }

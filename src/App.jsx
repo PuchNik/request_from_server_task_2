@@ -1,4 +1,6 @@
-import './App.css'
+import styles from './App.module.css'; // Предполагается, что стили находятся в App.module.css
+import { useState } from 'react'
+
 import {
   SortTasks,
   SearchTask,
@@ -7,7 +9,6 @@ import {
   useRequestPost,
   useRequestPut,
 } from './components/index.js'
-import { useState } from 'react'
 
 
 function App() {
@@ -39,39 +40,44 @@ function App() {
   const { sortedTasks } = SortTasks(tasks, setTasks)
 
   return (
-    <>
+    <div className={styles['app-container']}>
       {isLoading ? (
-        <p>Пожалуйста, подождите, идет загрузка данных...</p>
+        <p className={styles['loading-text']}>Пожалуйста, подождите, идет загрузка данных...</p>
       ) : (
-        <div>
-          <h1>Список пользователей</h1>
+        <div className={styles['content-container']}>
+          <div className={styles['filter-container']}>
           <input
+            className={styles['search-input']}
             type="text"
             placeholder="Поиск задачи..."
             value={searchValue}
             onChange={handleSearchTask}
           />
-          <button onClick={sortedTasks}>Фильтр А-Я</button>
-          <div>
-            <form onSubmit={handleAddTask}>
+          <h1 className={styles['title']}>Список пользователей</h1>
+          <button className={styles['sort-button']} onClick={sortedTasks}>Фильтр А-Я</button>
+          </div>
+          <div className={styles['task-input-container']}>
+            <form className={styles['task-form']} onSubmit={handleAddTask}>
               <input
+                className={styles['task-input']}
                 type="text"
                 placeholder="Записать задачу..."
                 value={taskValue}
                 onChange={handleInputChange}
               />
             </form>
-            <button onClick={addNewTask} type={'submit'}>
+            <button className={styles['add-button']} onClick={addNewTask} type={'submit'}>
               Добавить
             </button>
           </div>
-          <ol>
+          <ol className={styles['task-list']}>
             {filteredTasks.map(({ id, title }) => (
-              <li key={id}>
-                <div>
+              <li key={id} className={styles['task-item']}>
+                <div className={styles['task-content']}>
                   {idTaskModified === id ? (
-                    <form onSubmit={handleEditTask}>
+                    <form className={styles['edit-form']} onSubmit={handleEditTask}>
                       <input
+                        className={styles['edit-input']}
                         type="text"
                         value={editTaskValue}
                         onBlur={() => setIdTaskModified(null)}
@@ -79,19 +85,21 @@ function App() {
                       />
                     </form>
                   ) : (
-                    title
+                    <span className={styles['task-title']}>{title}</span>
                   )}
-                  <button onClick={() => editTask(id, title)}>
+                  <div className={styles['buttons-container']}>
+                  <button className={styles['edit-button']} onClick={() => editTask(id, title)}>
                     Редактировать
                   </button>
-                  <button onClick={() => deleteTask(id)}>Удалить</button>
+                  <button className={styles['delete-button']} onClick={() => deleteTask(id)}>Удалить</button>
+                  </div>
                 </div>
               </li>
             ))}
           </ol>
         </div>
       )}
-    </>
+    </div>
   )
 }
 
