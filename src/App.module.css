@@ -162,3 +162,15 @@
   border-radius: 5px;
   border: 2px solid #a46dff;
 }
+
+.empty-list-text {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.error-text {
+  text-align: center;
+  color: #e03030;
+  font-size: 20px;
+  font-weight: 500;
+}
