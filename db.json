@@ -1,28 +1,13 @@
 {
-  "tasks": [
+  "notes": [
     {
-      "id": "7234",
-      "title": "2",
+      "id": "b10c",
+      "title": "Task 1",
       "completed": false
     },
     {
-      "id": "c73b",
-      "title": "3",
-      "completed": false
-    },
-    {
-      "id": "b513",
-      "title": "1",
-      "completed": false
-    },
-    {
-      "id": "cff8",
-      "title": "6",
-      "completed": false
-    },
-    {
-      "id": "27dc",
-      "title": "5",
+      "id": "b706",
+      "title": "Task 2",
       "completed": false
     }
   ]

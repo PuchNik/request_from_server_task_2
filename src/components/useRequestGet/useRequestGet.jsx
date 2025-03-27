@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 
 export const useRequestGet = ({ isUpdating, setIsUpdating }) => {
-  const [tasks, setTasks] = useState([])
+  const [notes, setNotes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setIsLoading(true)
     setIsUpdating(true)
 
-    fetch('http://localhost:3000/tasks')
+    fetch('http://localhost:3000/notes')
       .then((loadedData) => loadedData.json())
-      .then((taskData) => setTasks(taskData))
+      .then((taskData) => setNotes(taskData))
 
       .finally(() => {
         setIsLoading(false)
@@ -19,7 +19,7 @@ export const useRequestGet = ({ isUpdating, setIsUpdating }) => {
 
   return {
     isLoading,
-    tasks,
-    setTasks
+    notes,
+    setNotes
   }
 }
