@@ -1,9 +1,9 @@
 {
   "notes": [
     {
-      "id": "dc1a",
       "title": "1",
-      "completed": false
+      "completed": false,
+      "id": "dc1a"
     },
     {
       "id": "a085",

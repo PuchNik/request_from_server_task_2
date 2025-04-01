@@ -12,6 +12,9 @@ export const useRequestPost = (setIsUpdating) => {
   const templateForAddingTask = () => {
     if (!taskValue) {
       setErrorMessage('Невозможно добавить пустую задачу')
+      setTimeout(() => {
+        setErrorMessage('')
+      }, 2500)
       return
     }
 
