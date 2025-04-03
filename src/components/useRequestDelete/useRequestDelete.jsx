@@ -1,4 +1,4 @@
-export const useRequestDelete = (notes, setNotes) => {
+export const useRequestDelete = (setNotes) => {
     const deleteTask = (id) => {
         fetch(`http://localhost:3000/notes/${id}`, {
             method: 'DELETE'
@@ -6,8 +6,8 @@ export const useRequestDelete = (notes, setNotes) => {
             .then(() => {
                 setNotes((prevNotes) => prevNotes.filter(note => note.id !== id));
             })
-
     }
+
     return {
         deleteTask
     }
