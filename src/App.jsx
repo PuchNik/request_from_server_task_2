@@ -11,16 +11,14 @@ import {
     Btn,
 } from './components/index.js'
 
-function App() {
-    const [isUpdating, setIsUpdating] = useState(false)
 
-    const {isLoading, notes, setNotes} = useRequestGet({
-        isUpdating,
-        setIsUpdating,
-    })
+function App() {
+    const [notes, setNotes] = useState([])
+
+    const {isLoading} = useRequestGet(setNotes)
 
     const {addNewTask, taskValue, handleInputChange, handleAddTask, errorMessage} =
-        useRequestPost(setIsUpdating)
+        useRequestPost(setNotes)
 
     const {
         editTask,
@@ -29,9 +27,9 @@ function App() {
         handleEditChange,
         editTaskValue,
         handleEditTask,
-    } = useRequestPut(setIsUpdating)
+    } = useRequestPut(setNotes)
 
-    const {deleteTask} = useRequestDelete(setIsUpdating)
+    const {deleteTask} = useRequestDelete(setNotes)
     const {searchValue, handleSearchNote, filteredNotes} = SearchNote(notes)
     const {sortedNotes} = SortNotes(notes, setNotes)
 

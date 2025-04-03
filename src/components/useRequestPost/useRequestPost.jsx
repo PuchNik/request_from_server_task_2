@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import {useState} from "react";
 
-export const useRequestPost = (setIsUpdating) => {
+export const useRequestPost = (notes, setNotes) => {
   const [taskValue, setTaskValue] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -26,10 +26,11 @@ export const useRequestPost = (setIsUpdating) => {
         completed: false,
       }),
     })
-        .then((rowResponse) => rowResponse.json())
+        .then(rowResponse => rowResponse.json())
+        .then(newNote => {setNotes((prevNotes) => [...prevNotes, newNote])})
+
         .finally(() => {
           setTaskValue('')
-          setIsUpdating(false)
         })
   }
 
