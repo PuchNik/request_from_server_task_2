@@ -1,12 +1,42 @@
-# React + Vite
+# Список дел (To-Do List)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это приложение "Список дел" разработано с использованием React и JSON Server. Оно предоставляет пользователям возможность эффективно управлять своими задачами, включая добавление, редактирование и удаление дел.
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Начальный список дел**: Приложение начинается с пустого массива задач, что позволяет пользователям начать с нуля.
+  
+- **CRUD-операции**: Реализованы все основные операции:
+  - **Добавление**: Пользователи могут добавлять новые задачи в список.
+  - **Изменение**: Каждая задача может быть отредактирована для внесения изменений.
+  - **Удаление**: Пользователи могут удалять задачи, которые больше не нужны.
 
-## Expanding the ESLint configuration
+- **Поиск задач**: Реализован функционал поиска задач по заданной фразе. Пользователи могут вводить текст, и приложение будет находить элементы, содержащие совпадающие фрагменты.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Сортировка задач**: Добавлена кнопка для включения режима сортировки задач по алфавиту. Если кнопка не нажата, задачи отображаются в исходном порядке, без сортировки.
+
+## Технологии
+- React
+- JSON Server для хранения данных
+
+## Установка и запуск
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <URL_репозитория>
+   ```
+2. Перейдите в директорию проекта:
+   ```bash
+   cd <имя_директории>
+   ```
+3. Установите зависимости:
+   ```bash
+   npm install
+   ```
+4. Запустите JSON Server:
+   ```bash
+   npm run json-server
+   ```
+5. Запустите приложение:
+   ```bash
+   npm start
+   ```
