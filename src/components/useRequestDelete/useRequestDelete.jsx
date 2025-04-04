@@ -1,5 +1,6 @@
+// Удаление заметок
 export const useRequestDelete = (setNotes) => {
-    const deleteTask = (id) => {
+    const deleteNote = (id) => {
         fetch(`http://localhost:3000/notes/${id}`, {
             method: 'DELETE'
         })
@@ -9,6 +10,6 @@ export const useRequestDelete = (setNotes) => {
     }
 
     return {
-        deleteTask
+        deleteNote
     }
 }

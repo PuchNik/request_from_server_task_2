@@ -1,26 +1,30 @@
 import {useState} from 'react'
 
+// Редактировние(обновление) заметок
 export const useRequestPut = (setNotes) => {
-    const [idTaskModified, setIdTaskModified] = useState(null)
-    const [editTaskValue, setEditTaskValue] = useState('')
+    const [idNoteModified, setIdTNoteModified] = useState(null)
+    const [editNoteValue, setEditNoteValue] = useState('')
 
-    const editTask = (id, title) => {
-        setIdTaskModified(id)
-        setEditTaskValue(title)
+    // Инициализация редактирования задачи
+    const editNote = (id, title) => {
+        setIdTNoteModified(id)
+        setEditNoteValue(title)
     }
 
+    // Обработка изменения ввода (редактируемой задачи)
     const handleEditChange = (event) => {
-        setEditTaskValue(event.target.value)
+        setEditNoteValue(event.target.value)
     }
 
-    const handleEditTask = (event) => {
+    // Обработка отправки формы (редактирования задачи)
+    const handleEditNote = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:3000/notes/${idTaskModified}`, {
+        fetch(`http://localhost:3000/notes/${idNoteModified}`, {
             method: 'PUT',
             headers: {'Content-type': 'application/json; charset=utf-8'},
             body: JSON.stringify({
-                title: editTaskValue,
+                title: editNoteValue,
                 completed: false,
             }),
         })
@@ -28,23 +32,23 @@ export const useRequestPut = (setNotes) => {
             .then((updatedNote) => {
                 setNotes((prevNotes) =>
                     prevNotes.map((note) =>
-                        note.id === idTaskModified ? updatedNote : note
+                        note.id === idNoteModified ? updatedNote : note
                     )
                 );
             })
 
             .finally(() => {
-                setIdTaskModified(null)
-                setEditTaskValue('')
+                setIdTNoteModified(null)
+                setEditNoteValue('')
             })
     }
 
     return {
-        editTask,
-        idTaskModified,
-        setIdTaskModified,
+        editNote,
+        idNoteModified,
+        setIdTNoteModified,
         handleEditChange,
-        editTaskValue,
-        handleEditTask,
+        editNoteValue,
+        handleEditNote,
     }
 }

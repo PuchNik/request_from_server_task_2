@@ -1,3 +1,4 @@
+// Получение заметок
 import {useEffect, useState} from 'react'
 
 export const useRequestGet = (setNotes) => {
@@ -7,7 +8,7 @@ export const useRequestGet = (setNotes) => {
         setIsLoading(true)
         fetch('http://localhost:3000/notes')
             .then((loadedData) => loadedData.json())
-            .then((taskData) => setNotes(taskData))
+            .then((noteData) => setNotes(noteData))
 
             .finally(() => {
                 setIsLoading(false)
